@@ -12,7 +12,7 @@ const AboutUs = () => {
   return (
     <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.45 }}>
       <section className="subhero relative overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1528823872057-9c018a7a7553?auto=format&fit=crop&w=1400&q=85" alt="Wine glasses at a tasting counter" />
+        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1800&q=90" alt="A richly stocked wine shelf" />
         <div className="subhero__shade" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-36 text-center sm:px-6 lg:px-8">
           <motion.span initial={{ opacity: 0, y: -14 }} animate={{ opacity: 1, y: 0 }} className="pill">
@@ -91,9 +91,8 @@ const AboutUs = () => {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, scale: 0.94 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="tilt-bottle-scene" aria-hidden="true">
-            <div className="tilt-bottle tilt-one" />
-            <div className="tilt-bottle tilt-two" />
-            <div className="tilt-bottle tilt-three" />
+            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1400&q=90" alt="" />
+            <span className="scene-note">A shelf with a story</span>
           </motion.div>
         </div>
       </section>
@@ -101,7 +100,7 @@ const AboutUs = () => {
       <section className="section-pad relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="story-band">
-            <img src="https://images.unsplash.com/photo-1423483641154-5411ec9c0ddf?auto=format&fit=crop&w=1300&q=85" alt="Wine bottles in a cellar" />
+            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1400&q=90" alt="A colourful drinks table set for friends" />
             <div>
               <span className="eyebrow">Our Promise</span>
               <h2>Every recommendation should feel like it was chosen for you.</h2>

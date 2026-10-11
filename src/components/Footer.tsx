@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Mail, MapPin, Phone, Twitter, Wine } from 'lucide-react';
+import { Facebook, Instagram, Mail, MapPin, Phone, Twitter } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -9,12 +9,9 @@ const Footer = () => {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
           <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <div className="flex items-center gap-3">
-              <span className="grid h-11 w-11 place-items-center rounded-full bg-gold/12 text-gold">
-                <Wine className="h-6 w-6" />
-              </span>
-              <span className="text-2xl font-black tracking-[0.18em] text-white">WINES</span>
-            </div>
+            <Link to="/" className="inline-flex overflow-hidden rounded-xl bg-[#fbf4e7] shadow-sm ring-1 ring-white/10" aria-label="Kaal Bhairav Wines home">
+              <img src="/kaal-bhairav-logo.png" alt="Kaal Bhairav Wines" className="h-32 w-24 object-contain" />
+            </Link>
             <p className="mt-5 max-w-sm text-sm leading-7 text-white/55">
               A premium bottle boutique for wines, spirits, gifting, and celebration planning.
               Curated with care, served with warmth.
@@ -52,7 +49,7 @@ const Footer = () => {
             <ul className="space-y-4 text-sm text-white/55">
               <li className="flex gap-3"><Phone className="mt-0.5 h-4 w-4 flex-none text-gold" />+91 98765 43210</li>
               <li className="flex gap-3"><Mail className="mt-0.5 h-4 w-4 flex-none text-gold" />hello@wines.com</li>
-              <li className="flex gap-3"><MapPin className="mt-0.5 h-4 w-4 flex-none text-gold" />Premium Market Road, City Centre</li>
+              <li className="flex gap-3"><MapPin className="mt-0.5 h-4 w-4 flex-none text-gold" /><span>B-33, Kalwad Yojana, Near Kalpana Cargo, Opposite Jaipur Metro Station, Pillar No. 147, Near Jaipur Railway Station, Jaipur – 302006</span></li>
             </ul>
           </div>
         </div>

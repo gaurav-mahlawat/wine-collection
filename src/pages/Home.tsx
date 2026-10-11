@@ -1,240 +1,128 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Clock, Gem, GlassWater, Quote, ShieldCheck, Sparkles, Star, Wine } from 'lucide-react';
+import { ArrowDown, ArrowRight, BadgeCheck, Gift, MapPin, Quote, Sparkles, Star } from 'lucide-react';
 
-const cellarImage = 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1600&q=85';
+const categories = [
+  { title: 'Whisky', note: 'Easy evenings to rare finds', image: 'https://images.unsplash.com/photo-1527281400683-1aae777175f8?auto=format&fit=crop&w=1000&q=90', className: 'category-tall' },
+  { title: 'Wine', note: 'A bottle for the table', image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1000&q=90', className: '' },
+  { title: 'Beer', note: 'Keep the good times easy', image: 'https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=1000&q=90', className: '' },
+  { title: 'Gin & more', note: 'Bright pours, curious mixes', image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1000&q=90', className: 'category-wide' },
+];
+
+const moments = [
+  { title: 'Dinner, made special', note: 'A thoughtful bottle for the table.', image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=90', label: '01 / AT HOME' },
+  { title: 'A gift with good taste', note: 'Make the handover feel as good as the gift.', image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=90', label: '02 / JUST BECAUSE' },
+  { title: 'Bring everyone together', note: 'Let the occasion set the mood.', image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=90', label: '03 / THE GATHERING' },
+];
 
 const Home = () => {
-  const categories = [
-    { title: 'Reserve Whisky', note: 'Single malts, smooth blends, rich finishes', image: 'https://images.unsplash.com/photo-1569529465841-dfecdab7503b?auto=format&fit=crop&w=900&q=85' },
-    { title: 'Beer & Breezers', note: 'Chilled favourites for easy gatherings', image: 'https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=900&q=85' },
-    { title: 'Wine Shelf', note: 'Reds, whites, sparkling and celebration bottles', image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=900&q=85' },
-    { title: 'Vodka & Gin', note: 'Clean pours, cocktail essentials, premium labels', image: 'https://images.unsplash.com/photo-1527281400683-1aae777175f8?auto=format&fit=crop&w=900&q=85' },
-  ];
-
-  const features = [
-    { icon: ShieldCheck, title: 'Authentic Stock', text: 'Sourced through trusted distributors with batch-conscious handling.' },
-    { icon: Clock, title: 'Quick Selection', text: 'Tell us the occasion and we help narrow the perfect bottle fast.' },
-    { icon: Gem, title: 'Gift Ready', text: 'Premium pairings, bottle sleeves, and celebration-ready presentation.' },
-  ];
-
-  const reviews = [
-    { name: 'Aarav Mehta', text: 'The team suggested a red wine for a family dinner and it was exactly the mood we wanted. Beautiful store experience.', rating: '5.0' },
-    { name: 'Nisha Kapoor', text: 'Their gift packing feels premium without being overdone. I liked how quickly they understood my budget.', rating: '4.9' },
-    { name: 'Kabir Sethi', text: 'Great collection of wines and spirits. The recommendations are clear, honest, and never pushy.', rating: '5.0' },
-  ];
+  const reduceMotion = useReducedMotion();
+  const appear = (delay = 0) => ({
+    initial: reduceMotion ? false : { opacity: 0, y: 22 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.18 },
+    transition: { duration: reduceMotion ? 0 : 0.55, delay: reduceMotion ? 0 : delay, ease: 'easeOut' as const },
+  });
 
   return (
-    <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.45 }}>
-      <section className="hero-shell relative min-h-screen overflow-hidden">
-        <img className="hero-image" src={cellarImage} alt="Warm premium wine cellar shelves" />
-        <div className="hero-overlay" />
-        <div className="bottle-rail" aria-hidden="true">
-          <span />
-          <span />
-          <span />
-          <span />
+    <motion.main className="home-page" initial={false}>
+      <section className="home-hero">
+        <div className="home-hero-copy">
+          <motion.div {...appear(0.05)} className="home-kicker"><span /> A BOTTLE SHOP FOR THE GOOD TIMES</motion.div>
+          <motion.h1 {...appear(0.12)}>Make room<br />for <em>something</em><br /><em>good.</em></motion.h1>
+          <motion.p {...appear(0.2)}>Thoughtfully chosen wines, spirits, and easy favourites—plus a little help finding the right one.</motion.p>
+          <motion.div {...appear(0.28)} className="home-hero-actions">
+            <Link className="home-button" to="/services">Explore the collection <ArrowRight size={17} /></Link>
+            <Link className="home-text-link" to="/about">Get to know us <ArrowDown size={15} /></Link>
+          </motion.div>
+          <motion.div {...appear(0.34)} className="home-social-proof"><div className="proof-stars">★★★★★</div><span>Good bottles. Good people. Better gatherings.</span></motion.div>
         </div>
+        <motion.div className="home-hero-visual" initial={reduceMotion ? false : { opacity: 0, scale: 1.025 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: reduceMotion ? 0 : 0.9, ease: 'easeOut' }}>
+          <img src="https://images.unsplash.com/photo-1601053397261-2552332609fc?auto=format&fit=crop&w=1800&q=90" alt="Warmly lit shelves of whisky bottles" />
+          <div className="hero-photo-wash" />
+          <div className="hero-photo-label"><span>THE EVENING EDIT</span><strong>Something worth<br />opening.</strong></div>
+          <div className="hero-photo-stamp"><Sparkles size={17} /><span>Picked with<br />personality</span></div>
+        </motion.div>
+        <div className="hero-bottom-note"><span>01 — 04</span><span>SCROLL A LITTLE, FIND A LOT</span><div /></div>
+      </section>
 
-        <div className="relative z-10 mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-center gap-12 px-4 pb-20 pt-32 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 34 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-black/30 px-4 py-2 text-sm text-gold backdrop-blur"
-            >
-              <Sparkles className="h-4 w-4" />
-              Fine wines, premium spirits, curated for every occasion
+      <section className="home-trust-strip" aria-label="Our approach">
+        <span>GOOD TASTE, NO GUESSWORK</span><i />
+        <span>HELPFUL, HUMAN RECOMMENDATIONS</span><i />
+        <span>MADE FOR EVERY KIND OF GET-TOGETHER</span>
+      </section>
+
+      <section className="home-section home-categories" id="collection">
+        <motion.div {...appear()} className="home-section-heading">
+          <div><span className="home-overline">A VERY GOOD PLACE TO START</span><h2>Find your<br /><em>kind of pour.</em></h2></div>
+          <p>From familiar favourites to a bottle you have not tried yet, browse by what sounds good.</p>
+        </motion.div>
+        <div className="home-category-grid">
+          {categories.map((category, index) => (
+            <motion.div key={category.title} {...appear(index * 0.06)} whileHover={reduceMotion ? undefined : { y: -6 }} className={`home-category-card ${category.className}`}>
+              <Link to="/services" aria-label={`Explore ${category.title}`}>
+                <img src={category.image} alt={`${category.title} selection`} loading="lazy" />
+                <span className="category-index">0{index + 1}</span><div className="home-category-shade" />
+                <div className="home-category-copy"><span>{category.note}</span><h3>{category.title}<ArrowUpRightMark /></h3></div>
+              </Link>
             </motion.div>
-
-            <h1 className="max-w-4xl text-5xl font-black leading-[0.95] text-white sm:text-7xl lg:text-8xl">
-              Wines
-              <span className="mt-3 block text-[0.54em] font-semibold leading-tight text-gold-light">
-                Premium drinks, bold shelf energy.
-              </span>
-            </h1>
-
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/72">
-              A modern liquor boutique for whisky, wine, beer, vodka, gin, rum, gifting, and party orders.
-              Explore trusted labels, bright product displays, and a store experience with proper junction energy.
-            </p>
-
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link className="primary-btn group" to="/services">
-                Explore Services
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link className="secondary-btn" to="/about">
-                Our Story
-              </Link>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 44, rotate: 2 }}
-            animate={{ opacity: 1, x: 0, rotate: 0 }}
-            transition={{ delay: 0.35, duration: 0.9, ease: 'easeOut' }}
-            className="hero-feature product-hero-display"
-          >
-            <div className="hero-liquid-ring" />
-            <div className="hero-product-bottle hero-bottle-a"><span>Wines</span></div>
-            <div className="hero-product-bottle hero-bottle-b"><span>Reserve</span></div>
-            <div className="hero-product-bottle hero-bottle-c"><span>Gold</span></div>
-            <div className="hero-product-shelf" />
-            <div className="hero-feature-card">
-              <Wine className="h-7 w-7 text-gold" />
-              <div>
-                <strong>Premium Junction</strong>
-                <span>Whisky, wine, beer, rum, gin, vodka and party-ready picks.</span>
-              </div>
-            </div>
-          </motion.div>
+          ))}
         </div>
       </section>
 
-      <section className="section-pad relative overflow-hidden">
-        <div className="ambient-line" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="section-heading">
-            <span>Popular Categories</span>
-            <h2>Popular drinks, displayed like a premium shop</h2>
-          </motion.div>
+      <section className="home-feature-band">
+        <motion.div {...appear()} className="home-feature-photo">
+          <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1500&q=90" alt="A colourful cocktail catching the light" loading="lazy" />
+          <div className="feature-photo-caption">A LITTLE COLOUR NEVER HURT</div>
+        </motion.div>
+        <motion.div {...appear(0.1)} className="home-feature-copy">
+          <span className="home-overline">MORE THAN A SHELF</span>
+          <h2>Good advice.<br /><em>No big speech.</em></h2>
+          <p>Not sure what to bring? Tell us the plan, who is coming, or what you like. We will help you find a bottle that feels right.</p>
+          <div className="feature-points"><span><BadgeCheck size={18} /> Friendly recommendations</span><span><BadgeCheck size={18} /> Picks for your budget</span><span><BadgeCheck size={18} /> Gift and event help</span></div>
+          <Link to="/services" className="home-link-arrow">See how we can help <ArrowRight size={17} /></Link>
+        </motion.div>
+      </section>
 
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {categories.map((category, index) => (
-              <motion.article
-                key={category.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08, duration: 0.55 }}
-                whileHover={{ y: -8 }}
-                className="category-card"
-              >
-                <img src={category.image} alt={category.title} />
-                <div className="category-card__shade" />
-                <div className="category-card__content">
-                  <span>0{index + 1}</span>
-                  <h3>{category.title}</h3>
-                  <p>{category.note}</p>
-                </div>
-              </motion.article>
-            ))}
-          </div>
+      <section className="home-section home-occasions">
+        <motion.div {...appear()} className="home-section-heading centered-heading">
+          <div><span className="home-overline">LIFE HAS ITS LITTLE OCCASIONS</span><h2>Bring a bottle.<br /><em>Bring a feeling.</em></h2></div>
+          <p>Some moments call for a toast. Others just call for good company. We have a shelf for both.</p>
+        </motion.div>
+        <div className="home-moment-grid">
+          {moments.map((moment, index) => (
+            <motion.div key={moment.title} {...appear(index * 0.08)} whileHover={reduceMotion ? undefined : { y: -5 }} className="home-moment-card">
+              <Link to="/services"><img src={moment.image} alt="" loading="lazy" /><span className="moment-label">{moment.label}</span><div className="moment-copy"><h3>{moment.title}</h3><p>{moment.note}</p></div><span className="moment-arrow"><ArrowRight size={18} /></span></Link>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      <section className="section-pad bg-ivory text-dark">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
-          <motion.div initial={{ opacity: 0, x: -36 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.75 }} className="image-stack">
-            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1000&q=85" alt="Colorful premium drinks on a bar counter" />
-            <div className="image-stack__badge">
-              <Star className="h-5 w-5 fill-current" />
-              <strong>Curated Daily</strong>
-            </div>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.75 }}>
-            <span className="eyebrow-dark">Why Wines</span>
-            <h2 className="mt-4 text-4xl font-black leading-tight sm:text-5xl">
-              A polished liquor-store experience with bright product confidence.
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-charcoal/70">
-              We built Wines for customers who want a strong collection without confusion. Walk in for whisky,
-              beer, wine, vodka, or gifting, and get quick guidance with a premium shelf feel.
-            </p>
-
-            <div className="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-3">
-              {features.map((feature) => (
-                <div key={feature.title} className="light-feature">
-                  <feature.icon className="h-7 w-7 text-wine" />
-                  <h3>{feature.title}</h3>
-                  <p>{feature.text}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
+      <section className="home-store-section">
+        <div className="store-orbit" aria-hidden="true" />
+        <motion.div {...appear()} className="store-copy">
+          <span className="home-overline">COME ON IN</span><h2>Your neighbourhood<br />stop for <em>good taste.</em></h2>
+          <p>A welcoming shop, a thoughtfully stocked shelf, and a real person happy to help you choose. That is the whole idea.</p>
+          <Link to="/about" className="home-button home-button-light">A little about us <ArrowRight size={17} /></Link>
+          <div className="store-address"><MapPin size={17} /><span>Visit us in store<br /><small>B-33, Kalwad Yojana, Near Kalpana Cargo, Opposite Jaipur Metro Station, Pillar No. 147, Near Jaipur Railway Station, Jaipur – 302006</small></span></div>
+        </motion.div>
+        <motion.div {...appear(0.12)} className="store-photo"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1400&q=90" alt="Warm and welcoming neighbourhood bar interior" loading="lazy" /><span>COME AS YOU ARE</span></motion.div>
       </section>
 
-      <section className="section-pad bottle-stage-section relative overflow-hidden">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_0.95fr] lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-            <span className="eyebrow">Featured Shelf</span>
-            <h2 className="mt-4 text-4xl font-black leading-tight text-white sm:text-5xl">
-              Bottle motion inspired by premium drink displays.
-            </h2>
-            <p className="mt-5 max-w-xl text-lg leading-8 text-white/64">
-              Similar to a liquor-store showcase, this section keeps bottles moving with soft glow, label shine,
-              and a display shelf effect while using a fresh Wines visual language.
-            </p>
-            <div className="mt-8 grid grid-cols-3 gap-3 text-center">
-              {['Dinner', 'Gifting', 'Events'].map((item) => (
-                <div key={item} className="mini-stat">{item}</div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, scale: 0.94 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bottle-stage" aria-hidden="true">
-            <div className="animated-bottle bottle-one"><span /></div>
-            <div className="animated-bottle bottle-two"><span /></div>
-            <div className="animated-bottle bottle-three"><span /></div>
-            <div className="bottle-glow" />
-          </motion.div>
-        </div>
+      <section className="home-section home-reviews">
+        <motion.div {...appear()} className="reviews-intro"><span className="home-overline">KIND WORDS, SHARED</span><h2>Good company<br /><em>knows good taste.</em></h2><div className="proof-stars">★★★★★</div><p>Thoughtful picks make the best memories.</p></motion.div>
+        <motion.blockquote {...appear(0.08)} className="home-quote"><Quote size={29} /><p>“The team understood exactly what I needed for dinner. Helpful, welcoming, and the bottle was just right.”</p><footer><div className="review-avatar">AM</div><span><strong>A happy customer</strong><small>Stopped in for a dinner pick</small></span><div className="quote-rating"><Star size={14} fill="currentColor" /> 5.0</div></footer></motion.blockquote>
       </section>
 
-      <section className="section-pad bg-ivory text-dark">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="section-heading section-heading--dark">
-            <span>Customer Reviews</span>
-            <h2>What people say after visiting Wines</h2>
-          </div>
-
-          <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
-            {reviews.map((review, index) => (
-              <motion.article
-                key={review.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08, duration: 0.55 }}
-                whileHover={{ y: -8 }}
-                className="review-card"
-              >
-                <Quote className="h-8 w-8 text-wine" />
-                <p>{review.text}</p>
-                <div>
-                  <strong>{review.name}</strong>
-                  <span>{review.rating} rating</span>
-                </div>
-              </motion.article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-pad relative overflow-hidden">
-        <div className="marquee" aria-hidden="true">
-          <div>Wine Bar - Gift Bottles - Imported Labels - Whisky Picks - Party Orders - </div>
-          <div>Wine Bar - Gift Bottles - Imported Labels - Whisky Picks - Party Orders - </div>
-        </div>
-
-        <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="cta-panel">
-            <GlassWater className="mx-auto h-12 w-12 text-gold" />
-            <h2>Bring home the right bottle tonight.</h2>
-            <p>Visit Wines for curated recommendations, event orders, and premium labels presented with care.</p>
-            <Link className="primary-btn group mx-auto" to="/services">
-              See What We Offer
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </motion.div>
-        </div>
+      <section className="home-final-cta">
+        <div className="cta-sparkle"><Gift size={25} /></div><span className="home-overline">YOUR NEXT FAVOURITE IS WAITING</span>
+        <h2>Make tonight<br /><em>a little special.</em></h2><p>Drop by, tell us what you are celebrating—or just what you like.</p>
+        <Link to="/services" className="home-button">Let’s find your bottle <ArrowRight size={17} /></Link>
       </section>
     </motion.main>
   );
 };
+
+const ArrowUpRightMark = () => <span className="category-arrow"><ArrowRight size={18} /></span>;
 
 export default Home;
