@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
           <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <Link to="/" className="inline-flex overflow-hidden rounded-xl bg-[#fbf4e7] shadow-sm ring-1 ring-white/10" aria-label="Kaal Bhairav Wines home">
-              <img src="/kaal-bhairav-logo.png" alt="Kaal Bhairav Wines" className="h-32 w-24 object-contain" />
+              <img src={`${import.meta.env.BASE_URL}kaal-bhairav-logo.png`} alt="Kaal Bhairav Wines" className="h-32 w-24 object-contain" />
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-7 text-white/55">
               A premium bottle boutique for wines, spirits, gifting, and celebration planning.
