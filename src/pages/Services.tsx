@@ -1,270 +1,130 @@
 import { motion } from 'framer-motion';
-import { Truck, Gift, Wine, Calendar, Users, Shield, CheckCircle, ArrowRight } from 'lucide-react';
+import { ArrowRight, BadgeCheck, CalendarDays, Gift, GlassWater, PackageCheck, Sparkles, Truck, Wine } from 'lucide-react';
 
 const Services = () => {
   const services = [
-    {
-      icon: Truck,
-      title: 'Express Wine Delivery',
-      description: 'Get your favorite wines delivered to your doorstep within 2 hours. Our temperature-controlled vehicles ensure your wine arrives in perfect condition.',
-      features: ['Same-day delivery', 'Temperature controlled', 'Real-time tracking', 'Safe packaging'],
-      color: 'from-wine to-wine-light'
-    },
-    {
-      icon: Gift,
-      title: 'Gift Packaging',
-      description: 'Make your gift extraordinary with our premium packaging options. Custom labels, wooden boxes, and personalized messages available.',
-      features: ['Custom labels', 'Wooden gift boxes', 'Personalized messages', 'Premium wrapping'],
-      color: 'from-gold to-gold-light'
-    },
-    {
-      icon: Wine,
-      title: 'Custom Collections',
-      description: 'Let our expert sommeliers create a personalized wine collection tailored to your taste preferences and budget.',
-      features: ['Expert curation', 'Budget-friendly options', 'Taste profiling', 'Monthly subscriptions'],
-      color: 'from-wine-light to-gold'
-    },
-    {
-      icon: Calendar,
-      title: 'Event Catering',
-      description: 'From intimate dinners to grand celebrations, we provide complete wine catering services for all your events.',
-      features: ['Event consultation', 'Wine pairing menu', 'Professional staff', 'Full setup included'],
-      color: 'from-amber-700 to-amber-500'
-    },
-    {
-      icon: Users,
-      title: 'Corporate Orders',
-      description: 'Bulk orders for corporate events, client gifts, and employee appreciation. Special pricing and dedicated account managers.',
-      features: ['Bulk discounts', 'Dedicated manager', 'Custom branding', 'Invoicing facility'],
-      color: 'from-emerald-800 to-emerald-600'
-    },
-    {
-      icon: Shield,
-      title: 'Wine Insurance',
-      description: 'Complete protection for your valuable wine collection. Coverage against damage, theft, and spoilage.',
-      features: ['Full coverage', 'Quick claims', 'Annual valuation', 'Expert assessment'],
-      color: 'from-blue-800 to-blue-600'
-    },
-  ];
-
-  const process = [
-    { step: '01', title: 'Browse & Select', desc: 'Explore our extensive collection' },
-    { step: '02', title: 'Customize', desc: 'Choose packaging & delivery' },
-    { step: '03', title: 'Order', desc: 'Secure checkout process' },
-    { step: '04', title: 'Enjoy', desc: 'Fast delivery to your door' },
+    { icon: Wine, title: 'Bottle Consultation', text: 'Personal suggestions for dinners, parties, gifting, and collector shelves.', details: ['Food pairing support', 'Budget-led picks', 'Occasion planning'] },
+    { icon: Gift, title: 'Premium Gifting', text: 'Elegant gift packs with sleeves, pairings, message cards, and presentation boxes.', details: ['Festive hampers', 'Corporate sets', 'Custom notes'] },
+    { icon: CalendarDays, title: 'Event Orders', text: 'Curated beverage lists for birthdays, weddings, house parties, and office gatherings.', details: ['Quantity guidance', 'Mixed selections', 'Advance booking'] },
+    { icon: PackageCheck, title: 'Reserve Sourcing', text: 'Ask us for specific labels, limited releases, imported bottles, and premium spirits.', details: ['Label requests', 'Rare finds', 'Stock alerts'] },
+    { icon: Truck, title: 'Pickup Coordination', text: 'Quick order preparation so your bottles are packed, checked, and ready when you arrive.', details: ['Fast packing', 'Secure handling', 'Call-ahead support'] },
+    { icon: BadgeCheck, title: 'Authenticity Care', text: 'Clean storage, careful handling, and a focus on trusted sourcing for every bottle.', details: ['Batch checks', 'Neat display', 'Quality-first stock'] },
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-20 right-20 w-80 h-80 bg-wine/15 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 left-10 w-60 h-60 bg-gold/10 rounded-full blur-3xl" />
+    <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.45 }}>
+      <section className="subhero relative overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=1400&q=85" alt="Celebration glasses with warm lights" />
+        <div className="subhero__shade" />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-36 text-center sm:px-6 lg:px-8">
+          <motion.span initial={{ opacity: 0, y: -14 }} animate={{ opacity: 1, y: 0 }} className="pill">
+            <Sparkles className="h-4 w-4" />
+            Services
+          </motion.span>
+          <motion.h1 initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.12 }} className="mt-6 text-5xl font-black text-white sm:text-7xl">
+            Thoughtful service for every pour.
+          </motion.h1>
+          <motion.p initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.22 }} className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/72">
+            Wines helps you choose, gift, and plan with confidence, whether you need one impressive bottle or a full celebration selection.
+          </motion.p>
         </div>
+      </section>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <motion.span
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="inline-block px-4 py-2 rounded-full glass-effect text-gold/80 text-sm mb-6"
-            >
-              Our Services
-            </motion.span>
-            <h1 className="text-4xl sm:text-6xl font-bold mb-6">
-              <span className="text-white">Premium Wine </span>
-              <span className="gradient-text">Services</span>
-            </h1>
-            <p className="text-white/50 max-w-2xl mx-auto text-lg">
-              From express delivery to custom collections, we offer a complete range of services 
-              to make your wine experience extraordinary.
+      <section className="section-pad">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((service, index) => (
+              <motion.article
+                key={service.title}
+                initial={{ opacity: 0, y: 34 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.07, duration: 0.55 }}
+                whileHover={{ y: -8 }}
+                className="service-card"
+              >
+                <div className="service-card__icon">
+                  <service.icon className="h-7 w-7" />
+                </div>
+                <h2>{service.title}</h2>
+                <p>{service.text}</p>
+                <ul>
+                  {service.details.map((detail) => (
+                    <li key={detail}>
+                      <BadgeCheck className="h-4 w-4" />
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-pad bg-ivory text-dark">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="section-heading section-heading--dark">
+            <span>How It Works</span>
+            <h2>Simple, quick, and guided</h2>
+          </div>
+
+          <div className="process-grid">
+            {[
+              ['01', 'Share the occasion', 'Dinner, gift, party, collection, or a specific label request.'],
+              ['02', 'Get curated options', 'We suggest bottles by taste, style, budget, and presentation.'],
+              ['03', 'Confirm the selection', 'Your order is checked, packed, and prepared with care.'],
+              ['04', 'Enjoy responsibly', 'Walk away with bottles that match the moment beautifully.'],
+            ].map(([step, title, text], index) => (
+              <motion.div key={step} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.08 }} className="process-step">
+                <span>{step}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-pad service-bottle-strip relative overflow-hidden">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="moving-shelf" aria-hidden="true">
+            <div className="shelf-line" />
+            <div className="shelf-bottle shelf-bottle-a" />
+            <div className="shelf-bottle shelf-bottle-b" />
+            <div className="shelf-bottle shelf-bottle-c" />
+            <div className="shelf-bottle shelf-bottle-d" />
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, y: 26 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+            <span className="eyebrow">Bottle Handling</span>
+            <h2 className="mt-4 text-4xl font-black leading-tight text-white sm:text-5xl">
+              Packed, checked, and staged before pickup.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-white/64">
+              Every order is handled like a display shelf: labels facing cleanly, bottles checked, and gifting details prepared before you arrive.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
-                whileHover={{ y: -8 }}
-                className="group relative glass-effect rounded-3xl p-8 overflow-hidden"
-              >
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
-                  <service.icon className="w-7 h-7 text-white" />
-                </div>
-                
-                <h3 className="text-xl font-semibold text-white mb-3">{service.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed mb-6">{service.description}</p>
-                
-                <ul className="space-y-2">
-                  {service.features.map((feature, j) => (
-                    <li key={j} className="flex items-center gap-2 text-white/40 text-sm">
-                      <CheckCircle className="w-4 h-4 text-gold/60" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+      <section className="section-pad">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 overflow-hidden rounded-[2rem] border border-gold/20 bg-white/[0.04] lg:grid-cols-[1fr_0.9fr]">
+          <div className="p-8 sm:p-12 lg:p-16">
+            <GlassWater className="h-12 w-12 text-gold" />
+            <h2 className="mt-6 text-4xl font-black leading-tight text-white sm:text-5xl">Planning a celebration?</h2>
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-white/62">
+              Tell us the guest count, taste profile, and mood. We will help create a balanced bottle list that feels generous, stylish, and easy to serve.
+            </p>
+            <button className="primary-btn group mt-8">
+              Start Planning
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </button>
           </div>
+          <img className="h-full min-h-[340px] w-full object-cover" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1200&q=85" alt="Premium bar shelves with warm lighting" />
         </div>
       </section>
-
-      {/* Process */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-wine/5 to-transparent" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <span className="text-gold/60 text-sm tracking-widest uppercase">How It Works</span>
-            <h2 className="text-4xl sm:text-5xl font-bold mt-4">
-              <span className="gradient-text">Simple Process</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {process.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.6 }}
-                className="relative text-center group"
-              >
-                {i < 3 && (
-                  <div className="hidden lg:block absolute top-8 left-[60%] w-[80%] h-px bg-gradient-to-r from-gold/30 to-transparent" />
-                )}
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="w-16 h-16 rounded-full glass-effect flex items-center justify-center mx-auto mb-4 relative"
-                >
-                  <span className="text-2xl font-bold gradient-text">{item.step}</span>
-                  <div className="absolute inset-0 rounded-full border border-gold/20 group-hover:border-gold/50 transition-colors" />
-                </motion.div>
-                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-white/40 text-sm">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing/Plans */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <span className="text-gold/60 text-sm tracking-widest uppercase">Pricing</span>
-            <h2 className="text-4xl sm:text-5xl font-bold mt-4">
-              <span className="gradient-text">Delivery Plans</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {[
-              { name: 'Standard', price: 'Free', period: 'On orders above ₹2000', features: ['3-5 day delivery', 'Standard packaging', 'Email support', 'Basic tracking'], popular: false },
-              { name: 'Express', price: '₹99', period: 'Per delivery', features: ['2-hour delivery', 'Premium packaging', 'Priority support', 'Live tracking', 'Temperature control'], popular: true },
-              { name: 'Premium', price: '₹499', period: 'Monthly', features: ['Unlimited deliveries', 'Luxury packaging', 'Dedicated sommelier', 'VIP access', 'Free gifts monthly', 'Exclusive events'], popular: false },
-            ].map((plan, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.6 }}
-                whileHover={{ y: -8 }}
-                className={`relative rounded-3xl p-8 ${
-                  plan.popular
-                    ? 'bg-gradient-to-b from-wine/30 to-wine-dark/30 border-2 border-gold/30'
-                    : 'glass-effect'
-                }`}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-dark text-xs font-bold rounded-full">
-                    MOST POPULAR
-                  </div>
-                )}
-                <h3 className="text-xl font-semibold text-white mb-2">{plan.name}</h3>
-                <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-4xl font-bold gradient-text">{plan.price}</span>
-                </div>
-                <p className="text-white/40 text-sm mb-6">{plan.period}</p>
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature, j) => (
-                    <li key={j} className="flex items-center gap-2 text-white/60 text-sm">
-                      <CheckCircle className="w-4 h-4 text-gold/60 flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <button className={`w-full py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 ${
-                  plan.popular
-                    ? 'bg-gold text-dark hover:bg-gold-light'
-                    : 'glass-effect text-gold hover:bg-gold/10'
-                }`}>
-                  Choose Plan
-                </button>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="glass-effect rounded-3xl p-12 text-center relative overflow-hidden"
-          >
-            <div className="absolute inset-0 animate-shimmer" />
-            <div className="relative">
-              <h2 className="text-3xl font-bold text-white mb-4">Need a Custom Solution?</h2>
-              <p className="text-white/50 mb-8">
-                We'd love to create a tailored wine service package for your specific needs.
-              </p>
-              <button className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-wine to-wine-light text-white font-medium rounded-full hover:shadow-xl hover:shadow-wine/30 transition-all duration-300 hover:scale-105">
-                Contact Us
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    </motion.div>
+    </motion.main>
   );
 };
 

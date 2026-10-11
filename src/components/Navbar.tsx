@@ -1,7 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Wine } from 'lucide-react';
+import { Menu, ShoppingBag, Wine, X } from 'lucide-react';
+
+const navLinks = [
+  { path: '/', label: 'Home' },
+  { path: '/services', label: 'Services' },
+  { path: '/about', label: 'About Us' },
+];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -9,136 +15,76 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 36);
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    setIsMobileOpen(false);
-  }, [location]);
-
-  const navLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/services', label: 'Services' },
-    { path: '/about', label: 'About Us' },
-  ];
+  useEffect(() => setIsMobileOpen(false), [location.pathname]);
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
+    <motion.header
+      initial={{ y: -90 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'bg-[#0a0a0a]/90 backdrop-blur-xl shadow-lg shadow-wine/10'
-          : 'bg-transparent'
+      transition={{ duration: 0.7, ease: 'easeOut' }}
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${
+        isScrolled ? 'bg-dark/86 shadow-2xl shadow-black/30 backdrop-blur-xl' : 'bg-gradient-to-b from-black/62 to-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <motion.div
-              whileHover={{ rotate: 15, scale: 1.1 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-              className="relative"
-            >
-              <Wine className="w-8 h-8 text-gold" />
-              <div className="absolute inset-0 bg-gold/20 rounded-full blur-lg group-hover:bg-gold/40 transition-all" />
-            </motion.div>
-            <span className="text-2xl font-bold gradient-text tracking-wider">WINES</span>
-          </Link>
+      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link to="/" className="group flex items-center gap-3" aria-label="Wines home">
+          <span className="grid h-11 w-11 place-items-center rounded-full border border-gold/35 bg-gold/10 text-gold">
+            <Wine className="h-6 w-6 transition-transform duration-300 group-hover:-rotate-12" />
+          </span>
+          <span className="text-2xl font-black tracking-[0.18em] text-white">WINES</span>
+        </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link, index) => (
-              <motion.div
-                key={link.path}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 + 0.3 }}
-              >
-                <Link
-                  to={link.path}
-                  className={`relative px-4 py-2 text-sm font-medium tracking-wide transition-colors duration-300 ${
-                    location.pathname === link.path
-                      ? 'text-gold'
-                      : 'text-white/70 hover:text-gold'
-                  }`}
-                >
-                  {link.label}
-                  {location.pathname === link.path && (
-                    <motion.div
-                      layoutId="navbar-indicator"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gold"
-                      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                    />
-                  )}
-                </Link>
-              </motion.div>
-            ))}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.6 }}
+        <div className="hidden items-center gap-2 md:flex">
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              className={`relative rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+                location.pathname === link.path ? 'text-dark' : 'text-white/72 hover:text-gold'
+              }`}
             >
-              <Link
-                to="/services"
-                className="px-6 py-2.5 bg-gradient-to-r from-wine to-wine-light text-white text-sm font-medium rounded-full hover:shadow-lg hover:shadow-wine/30 transition-all duration-300 hover:scale-105"
-              >
-                Order Now
-              </Link>
-            </motion.div>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="md:hidden text-gold p-2"
-          >
-            {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+              {location.pathname === link.path && (
+                <motion.span layoutId="active-nav-pill" className="absolute inset-0 rounded-full bg-gold" transition={{ type: 'spring', stiffness: 400, damping: 35 }} />
+              )}
+              <span className="relative z-10">{link.label}</span>
+            </Link>
+          ))}
         </div>
-      </div>
 
-      {/* Mobile Menu */}
+        <Link className="hidden items-center gap-2 rounded-full border border-gold/30 bg-white/8 px-5 py-2.5 text-sm font-semibold text-gold backdrop-blur transition hover:bg-gold hover:text-dark md:flex" to="/services">
+          <ShoppingBag className="h-4 w-4" />
+          Visit Store
+        </Link>
+
+        <button className="grid h-11 w-11 place-items-center rounded-full border border-gold/25 text-gold md:hidden" onClick={() => setIsMobileOpen((value) => !value)} aria-label="Toggle navigation">
+          {isMobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
+      </nav>
+
       <AnimatePresence>
         {isMobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-[#0a0a0a]/95 backdrop-blur-xl border-t border-gold/10"
-          >
-            <div className="px-4 py-6 space-y-4">
-              {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.path}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Link
-                    to={link.path}
-                    className={`block px-4 py-3 text-lg font-medium rounded-lg transition-all ${
-                      location.pathname === link.path
-                        ? 'text-gold bg-gold/10'
-                        : 'text-white/70 hover:text-gold hover:bg-white/5'
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
+          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="border-t border-gold/15 bg-dark/96 px-4 py-5 backdrop-blur-xl md:hidden">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`mb-2 block rounded-2xl px-4 py-3 text-base font-semibold ${
+                  location.pathname === link.path ? 'bg-gold text-dark' : 'text-white/72 hover:bg-white/8 hover:text-gold'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </motion.header>
   );
 };
 

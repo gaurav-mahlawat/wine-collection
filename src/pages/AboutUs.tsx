@@ -1,306 +1,119 @@
 import { motion } from 'framer-motion';
-import { Heart, Target, Eye, Users, Award, Globe, Leaf, Link2 } from 'lucide-react';
+import { Award, Eye, Heart, Leaf, MapPin, Target, Users, Wine } from 'lucide-react';
 
 const AboutUs = () => {
-  const team = [
-    { name: 'Rajesh Kumar', role: 'Founder & CEO', emoji: '👨‍💼' },
-    { name: 'Priya Sharma', role: 'Head Sommelier', emoji: '👩‍🍳' },
-    { name: 'Arjun Mehta', role: 'Operations Director', emoji: '👨‍💻' },
-    { name: 'Sneha Patel', role: 'Customer Experience', emoji: '👩‍💼' },
-  ];
-
   const values = [
-    { icon: Heart, title: 'Passion', desc: 'Every bottle tells a story, and we\'re passionate about sharing it.' },
-    { icon: Target, title: 'Quality', desc: 'We never compromise on the quality of our wines and service.' },
-    { icon: Eye, title: 'Transparency', desc: 'Honest pricing, authentic products, and clear communication.' },
-    { icon: Leaf, title: 'Sustainability', desc: 'Committed to eco-friendly practices and responsible sourcing.' },
-  ];
-
-  const milestones = [
-    { year: '2015', title: 'Founded', desc: 'Started with a vision to bring premium wines to every home.' },
-    { year: '2017', title: 'First Store', desc: 'Opened our flagship store in the heart of the city.' },
-    { year: '2019', title: 'Online Launch', desc: 'Expanded to digital platform serving 50+ cities.' },
-    { year: '2021', title: '10K Customers', desc: 'Reached 10,000 happy customers milestone.' },
-    { year: '2023', title: 'Award Winner', desc: 'Won Best Wine Retailer award at National Spirits Awards.' },
-    { year: '2024', title: 'Going Global', desc: 'Expanding to international markets with curated collections.' },
+    { icon: Heart, title: 'Warm Service', text: 'Helpful recommendations without pressure or pretence.' },
+    { icon: Eye, title: 'Honest Choice', text: 'Clear guidance on style, price, pairing, and occasion fit.' },
+    { icon: Target, title: 'Curated Range', text: 'A focused mix of familiar favourites and standout discoveries.' },
+    { icon: Leaf, title: 'Responsible Culture', text: 'We encourage mindful hosting, gifting, and consumption.' },
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-80 h-80 bg-wine/15 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-gold/5 rounded-full animate-rotate-slow" />
+    <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.45 }}>
+      <section className="subhero relative overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1528823872057-9c018a7a7553?auto=format&fit=crop&w=1400&q=85" alt="Wine glasses at a tasting counter" />
+        <div className="subhero__shade" />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-36 text-center sm:px-6 lg:px-8">
+          <motion.span initial={{ opacity: 0, y: -14 }} animate={{ opacity: 1, y: 0 }} className="pill">
+            <Wine className="h-4 w-4" />
+            About Us
+          </motion.span>
+          <motion.h1 initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.12 }} className="mt-6 text-5xl font-black text-white sm:text-7xl">
+            A modern bottle boutique named Wines.
+          </motion.h1>
+          <motion.p initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.22 }} className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/72">
+            We bring together premium labels, helpful people, and a beautiful retail mood for customers who want the right bottle without the guesswork.
+          </motion.p>
         </div>
+      </section>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <motion.span
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="inline-block px-4 py-2 rounded-full glass-effect text-gold/80 text-sm mb-6"
-            >
-              Our Story
-            </motion.span>
-            <h1 className="text-4xl sm:text-6xl font-bold mb-6">
-              <span className="text-white">Crafted with </span>
-              <span className="gradient-text">Passion & Purpose</span>
-            </h1>
-            <p className="text-white/50 max-w-2xl mx-auto text-lg leading-relaxed">
-              Born from a love of fine wines and a desire to make premium collections accessible to everyone. 
-              We're more than a wine store — we're curators of experiences.
+      <section className="section-pad bg-ivory text-dark">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+            <span className="eyebrow-dark">Our Story</span>
+            <h2 className="mt-4 text-4xl font-black leading-tight sm:text-5xl">Built for people who love a well-chosen bottle.</h2>
+            <div className="mt-6 space-y-5 text-lg leading-8 text-charcoal/72">
+              <p>
+                Wines began with a simple belief: choosing wine or spirits should feel enjoyable, not overwhelming.
+                Our store is designed around clean displays, friendly guidance, and a collection that suits both everyday plans and milestone moments.
+              </p>
+              <p>
+                We focus on authentic sourcing, careful storage, and practical recommendations. You can arrive with a favourite label in mind or just an occasion,
+                and leave with something that feels considered.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, x: 36 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="about-stat-panel">
+            {[
+              { icon: Award, value: 'Premium', label: 'Curated labels' },
+              { icon: Users, value: 'Friendly', label: 'Guided service' },
+              { icon: MapPin, value: 'Local', label: 'Boutique presence' },
+            ].map((item) => (
+              <div key={item.label}>
+                <item.icon className="h-8 w-8 text-gold" />
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="section-pad">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="section-heading">
+            <span>What We Stand For</span>
+            <h2>Premium, but never intimidating</h2>
+          </div>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {values.map((value, index) => (
+              <motion.article key={value.title} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.08 }} whileHover={{ y: -8 }} className="value-card">
+                <value.icon className="h-8 w-8 text-gold" />
+                <h3>{value.title}</h3>
+                <p>{value.text}</p>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-pad bg-ivory text-dark">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+            <span className="eyebrow-dark">Store Mood</span>
+            <h2 className="mt-4 text-4xl font-black leading-tight sm:text-5xl">A boutique shelf, not a crowded counter.</h2>
+            <p className="mt-5 text-lg leading-8 text-charcoal/72">
+              We arrange bottles so customers can scan quickly, compare styles, and ask for help without feeling rushed.
+              The idea is simple: premium choice should feel calm, clear, and enjoyable.
             </p>
           </motion.div>
-        </div>
-      </section>
 
-      {/* Story Section */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <span className="text-gold/60 text-sm tracking-widest uppercase">Our Journey</span>
-              <h2 className="text-4xl font-bold mt-4 mb-6">
-                <span className="gradient-text">A Legacy of Excellence</span>
-              </h2>
-              <div className="space-y-4 text-white/60 leading-relaxed">
-                <p>
-                  What started as a small passion project in 2015 has grown into one of the most 
-                  trusted names in premium wine retail. Our founder, Rajesh Kumar, envisioned a world 
-                  where everyone could access exceptional wines without compromise.
-                </p>
-                <p>
-                  Today, we partner with over 200 vineyards across 30 countries, bringing you an 
-                  unparalleled selection that spans from classic French Bordeaux to innovative New 
-                  World blends. Every bottle in our collection has been personally tasted and approved 
-                  by our team of expert sommeliers.
-                </p>
-                <p>
-                  We believe that wine is more than a beverage — it's an experience, a conversation 
-                  starter, and a bridge between cultures. That's why we go beyond just selling wine; 
-                  we educate, inspire, and create memorable moments.
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <div className="glass-effect rounded-3xl p-8 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-wine/10 to-gold/5" />
-                <div className="relative grid grid-cols-2 gap-6">
-                  {[
-                    { icon: Globe, value: '30+', label: 'Countries' },
-                    { icon: Award, value: '50+', label: 'Awards' },
-                    { icon: Users, value: '10K+', label: 'Customers' },
-                    { icon: Link2, value: '200+', label: 'Partners' },
-                  ].map((stat, i) => (
-                    <motion.div
-                      key={i}
-                      whileHover={{ scale: 1.05 }}
-                      className="text-center p-4 rounded-2xl bg-white/5"
-                    >
-                      <stat.icon className="w-8 h-8 text-gold mx-auto mb-2" />
-                      <div className="text-2xl font-bold gradient-text">{stat.value}</div>
-                      <div className="text-white/40 text-sm">{stat.label}</div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gold/10 rounded-full blur-xl" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-wine/10 rounded-full blur-xl" />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-wine/5 to-transparent" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <span className="text-gold/60 text-sm tracking-widest uppercase">What Drives Us</span>
-            <h2 className="text-4xl sm:text-5xl font-bold mt-4">
-              <span className="gradient-text">Our Core Values</span>
-            </h2>
+          <motion.div initial={{ opacity: 0, scale: 0.94 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="tilt-bottle-scene" aria-hidden="true">
+            <div className="tilt-bottle tilt-one" />
+            <div className="tilt-bottle tilt-two" />
+            <div className="tilt-bottle tilt-three" />
           </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
-                whileHover={{ y: -8 }}
-                className="glass-effect rounded-3xl p-8 text-center group"
-              >
-                <motion.div
-                  whileHover={{ rotate: 10, scale: 1.1 }}
-                  className="w-16 h-16 rounded-full bg-gradient-to-br from-wine/30 to-gold/20 flex items-center justify-center mx-auto mb-6"
-                >
-                  <value.icon className="w-8 h-8 text-gold" />
-                </motion.div>
-                <h3 className="text-lg font-semibold text-white mb-3">{value.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{value.desc}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <span className="text-gold/60 text-sm tracking-widest uppercase">Milestones</span>
-            <h2 className="text-4xl sm:text-5xl font-bold mt-4">
-              <span className="gradient-text">Our Journey</span>
-            </h2>
-          </motion.div>
-
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-gold/30 via-gold/50 to-gold/30 hidden md:block" />
-            
-            <div className="space-y-12">
-              {milestones.map((milestone, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.6 }}
-                  className={`flex flex-col md:flex-row items-center gap-6 ${
-                    i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                  }`}
-                >
-                  <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                    <div className="glass-effect rounded-2xl p-6 inline-block">
-                      <span className="text-gold font-bold text-lg">{milestone.year}</span>
-                      <h3 className="text-white font-semibold mt-1">{milestone.title}</h3>
-                      <p className="text-white/50 text-sm mt-1">{milestone.desc}</p>
-                    </div>
-                  </div>
-                  <div className="w-4 h-4 rounded-full bg-gold border-4 border-[#0a0a0a] z-10 flex-shrink-0 hidden md:block" />
-                  <div className="flex-1 hidden md:block" />
-                </motion.div>
-              ))}
+      <section className="section-pad relative overflow-hidden">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="story-band">
+            <img src="https://images.unsplash.com/photo-1423483641154-5411ec9c0ddf?auto=format&fit=crop&w=1300&q=85" alt="Wine bottles in a cellar" />
+            <div>
+              <span className="eyebrow">Our Promise</span>
+              <h2>Every recommendation should feel like it was chosen for you.</h2>
+              <p>
+                Whether you are building a dinner table, gifting a client, or collecting something special,
+                Wines keeps the experience simple, stylish, and personal.
+              </p>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Team */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-wine/5 to-transparent" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <span className="text-gold/60 text-sm tracking-widest uppercase">The People</span>
-            <h2 className="text-4xl sm:text-5xl font-bold mt-4">
-              <span className="gradient-text">Meet Our Team</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
-                whileHover={{ y: -8 }}
-                className="glass-effect rounded-3xl p-8 text-center group"
-              >
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  className="w-20 h-20 rounded-full bg-gradient-to-br from-wine/30 to-gold/20 flex items-center justify-center mx-auto mb-4 text-4xl"
-                >
-                  {member.emoji}
-                </motion.div>
-                <h3 className="text-lg font-semibold text-white">{member.name}</h3>
-                <p className="text-gold/60 text-sm mt-1">{member.role}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Mission Statement */}
-      <section className="py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative rounded-3xl overflow-hidden"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-wine-dark via-wine to-wine-dark" />
-            <div className="absolute inset-0 animate-shimmer" />
-            <div className="relative p-12 sm:p-16 text-center">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-              >
-                <span className="text-4xl mb-6 block">🍷</span>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-                  Our Mission
-                </h2>
-                <p className="text-white/70 text-lg leading-relaxed max-w-2xl mx-auto">
-                  "To democratize the world of fine wines by making premium collections accessible, 
-                  enjoyable, and educational for everyone. We believe every person deserves to experience 
-                  the artistry and culture that comes with exceptional wine."
-                </p>
-                <p className="text-gold mt-6 font-medium">— Rajesh Kumar, Founder</p>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    </motion.div>
+    </motion.main>
   );
 };
 

@@ -1,119 +1,65 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Wine, Phone, Mail, MapPin, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Facebook, Instagram, Mail, MapPin, Phone, Twitter, Wine } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="relative bg-[#050505] border-t border-gold/10">
-      {/* Decorative top line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex items-center gap-2 mb-4">
-              <Wine className="w-7 h-7 text-gold" />
-              <span className="text-xl font-bold gradient-text">WINES</span>
+    <footer className="relative border-t border-gold/15 bg-[#070706]">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/70 to-transparent" />
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
+          <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <div className="flex items-center gap-3">
+              <span className="grid h-11 w-11 place-items-center rounded-full bg-gold/12 text-gold">
+                <Wine className="h-6 w-6" />
+              </span>
+              <span className="text-2xl font-black tracking-[0.18em] text-white">WINES</span>
             </div>
-            <p className="text-white/50 text-sm leading-relaxed">
-              Curating the finest wines from around the world. Experience luxury in every sip with our premium collection.
+            <p className="mt-5 max-w-sm text-sm leading-7 text-white/55">
+              A premium bottle boutique for wines, spirits, gifting, and celebration planning.
+              Curated with care, served with warmth.
             </p>
-            <div className="flex gap-4 mt-6">
-              {[Instagram, Facebook, Twitter].map((Icon, i) => (
-                <motion.a
-                  key={i}
-                  href="#"
-                  whileHover={{ scale: 1.2, y: -2 }}
-                  className="w-10 h-10 rounded-full glass-effect flex items-center justify-center text-gold/70 hover:text-gold transition-colors"
-                >
-                  <Icon className="w-4 h-4" />
-                </motion.a>
+            <div className="mt-6 flex gap-3">
+              {[Instagram, Facebook, Twitter].map((Icon, index) => (
+                <a key={index} href="#" className="grid h-10 w-10 place-items-center rounded-full border border-gold/20 text-gold/75 transition hover:bg-gold hover:text-dark" aria-label="Social link">
+                  <Icon className="h-4 w-4" />
+                </a>
               ))}
             </div>
           </motion.div>
 
-          {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <h4 className="text-gold font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-3">
-              {['Home', 'Services', 'About Us'].map((item, i) => (
-                <li key={i}>
-                  <Link
-                    to={i === 0 ? '/' : i === 1 ? '/services' : '/about'}
-                    className="text-white/50 hover:text-gold text-sm transition-colors duration-300 flex items-center gap-2"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold/30" />
-                    {item}
-                  </Link>
-                </li>
-              ))}
+          <div>
+            <h3 className="footer-title">Quick Links</h3>
+            <ul className="footer-list">
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/services">Services</Link></li>
+              <li><Link to="/about">About Us</Link></li>
             </ul>
-          </motion.div>
+          </div>
 
-          {/* Services */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h4 className="text-gold font-semibold mb-4">Our Services</h4>
-            <ul className="space-y-3">
-              {['Wine Delivery', 'Custom Collections', 'Event Catering', 'Gift Packaging'].map((item, i) => (
-                <li key={i}>
-                  <span className="text-white/50 text-sm flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold/30" />
-                    {item}
-                  </span>
-                </li>
-              ))}
+          <div>
+            <h3 className="footer-title">Services</h3>
+            <ul className="footer-list">
+              <li>Wine Consultation</li>
+              <li>Gift Hampers</li>
+              <li>Event Orders</li>
+              <li>Reserve Sourcing</li>
             </ul>
-          </motion.div>
+          </div>
 
-          {/* Contact */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <h4 className="text-gold font-semibold mb-4">Contact Us</h4>
-            <ul className="space-y-4">
-              <li className="flex items-center gap-3 text-white/50 text-sm">
-                <Phone className="w-4 h-4 text-gold" />
-                +91 98765 43210
-              </li>
-              <li className="flex items-center gap-3 text-white/50 text-sm">
-                <Mail className="w-4 h-4 text-gold" />
-                hello@wines.com
-              </li>
-              <li className="flex items-start gap-3 text-white/50 text-sm">
-                <MapPin className="w-4 h-4 text-gold mt-0.5" />
-                123 Vineyard Lane, Wine District
-              </li>
+          <div>
+            <h3 className="footer-title">Contact</h3>
+            <ul className="space-y-4 text-sm text-white/55">
+              <li className="flex gap-3"><Phone className="mt-0.5 h-4 w-4 flex-none text-gold" />+91 98765 43210</li>
+              <li className="flex gap-3"><Mail className="mt-0.5 h-4 w-4 flex-none text-gold" />hello@wines.com</li>
+              <li className="flex gap-3"><MapPin className="mt-0.5 h-4 w-4 flex-none text-gold" />Premium Market Road, City Centre</li>
             </ul>
-          </motion.div>
+          </div>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/30 text-sm">
-            © 2024 Wines. All rights reserved.
-          </p>
-          <p className="text-white/30 text-xs">
-            Drink Responsibly. Must be 21+ to purchase.
-          </p>
+        <div className="mt-14 flex flex-col gap-3 border-t border-white/8 pt-7 text-sm text-white/36 sm:flex-row sm:items-center sm:justify-between">
+          <p>Copyright 2026 Wines. All rights reserved.</p>
+          <p>Enjoy responsibly. Please follow your local legal drinking age.</p>
         </div>
       </div>
     </footer>
