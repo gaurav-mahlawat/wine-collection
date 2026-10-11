@@ -38,7 +38,7 @@ const Navbar = () => {
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="group flex items-center" aria-label="Kaal Bhairav Wines home">
           <span className="flex h-[72px] w-[54px] shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#fbf4e7] shadow-sm ring-1 ring-black/5 transition-transform duration-300 group-hover:scale-[1.03]">
-            <img src="/kaal-bhairav-logo.png" alt="Kaal Bhairav Wines" className="h-full w-full object-contain" />
+            <img src={`${import.meta.env.BASE_URL}kaal-bhairav-logo.png`} alt="Kaal Bhairav Wines" className="h-full w-full object-contain" />
           </span>
         </Link>
 
