@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import { ArrowDown, ArrowRight, BadgeCheck, Gift, IndianRupee, MapPin, Quote, Sparkles, Star, Truck, Wine } from 'lucide-react';
 
 const categories = [
-  { title: 'Whisky', note: 'Easy evenings to rare finds', image: 'https://images.unsplash.com/photo-1527281400683-1aae777175f8?auto=format&fit=crop&w=1000&q=90', className: 'category-tall' },
-  { title: 'Wine', note: 'A bottle for the table', image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1000&q=90', className: '' },
-  { title: 'Beer', note: 'Keep the good times easy', image: 'https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=1000&q=90', className: '' },
-  { title: 'Gin & more', note: 'Bright pours, curious mixes', image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1000&q=90', className: 'category-wide' },
+  { title: 'Whisky', note: 'Easy evenings to rare finds', image: `${import.meta.env.BASE_URL}bottles/whisky-1.webp`, className: 'category-tall' },
+  { title: 'Wine', note: 'A bottle for the table', image: `${import.meta.env.BASE_URL}bottles/wine-1.webp`, className: '' },
+  { title: 'Beer', note: 'Keep the good times easy', image: `${import.meta.env.BASE_URL}bottles/beer-1.webp`, className: '' },
+  { title: 'Gin & more', note: 'Bright pours, curious mixes', image: `${import.meta.env.BASE_URL}bottles/gin-1.webp`, className: 'category-wide' },
 ];
 
 const moments = [
-  { title: 'Dinner, made special', note: 'A thoughtful bottle for the table.', image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=90', label: '01 / AT HOME' },
-  { title: 'A gift with good taste', note: 'Make the handover feel as good as the gift.', image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=90', label: '02 / JUST BECAUSE' },
-  { title: 'Bring everyone together', note: 'Let the occasion set the mood.', image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=90', label: '03 / THE GATHERING' },
+  { title: 'Dinner, made special', note: 'A thoughtful bottle for the table.', image: `${import.meta.env.BASE_URL}store/store-01.jpg`, label: '01 / AT HOME' },
+  { title: 'A gift with good taste', note: 'Make the handover feel as good as the gift.', image: `${import.meta.env.BASE_URL}store/store-03.jpg`, label: '02 / JUST BECAUSE' },
+  { title: 'Bring everyone together', note: 'Let the occasion set the mood.', image: `${import.meta.env.BASE_URL}store/store-06.jpg`, label: '03 / THE GATHERING' },
 ];
 
 const Home = () => {
@@ -73,11 +73,17 @@ const Home = () => {
             <p>All drinks are sold at MRP price. Best price guaranteed, every single time.</p>
           </motion.div>
         </div>
-        <motion.div {...appear(0.1)} className="home-delivery-body">
-          <p>Are you a resident of Jaipur looking for a convenient way to enjoy premium wines and spirits? Look no further. We are your one-stop shop for all your beverage needs, delivering right to your doorstep across the beautiful Pink City.</p>
-          <p>Whether you live in the bustling heart of <strong>C-Scheme</strong>, the historical precincts of <strong>Bani Park</strong>, or the serene outskirts of <strong>Jagatpura</strong>, we have got you covered. From renowned Indian whiskies to exquisite international wines, there is something for every palate and occasion.</p>
-          <p><strong>Effortless ordering and speedy delivery:</strong> simply drop by our shop near the Jaipur Railway Station, or give us a call, and choose your desired beverages. We ensure a smooth ordering process with prompt home delivery, so you can relax and unwind without venturing out.</p>
-        </motion.div>
+        <div className="home-delivery-media">
+          <motion.div {...appear(0.1)} className="home-delivery-body">
+            <p>Are you a resident of Jaipur looking for a convenient way to enjoy premium wines and spirits? Look no further. We are your one-stop shop for all your beverage needs, delivering right to your doorstep across the beautiful Pink City.</p>
+            <p>Whether you live in the bustling heart of <strong>C-Scheme</strong>, the historical precincts of <strong>Bani Park</strong>, or the serene outskirts of <strong>Jagatpura</strong>, we have got you covered. From renowned Indian whiskies to exquisite international wines, there is something for every palate and occasion.</p>
+            <p><strong>Effortless ordering and speedy delivery:</strong> simply drop by our shop near the Jaipur Railway Station, or give us a call, and choose your desired beverages. We ensure a smooth ordering process with prompt home delivery, so you can relax and unwind without venturing out.</p>
+          </motion.div>
+          <motion.div {...appear(0.15)} className="home-delivery-photo">
+            <img src={`${import.meta.env.BASE_URL}store/store-05.jpg`} alt="A look inside our Jaipur store" loading="lazy" />
+            <span>YOUR FAVOURITES, PACKED AND SENT</span>
+          </motion.div>
+        </div>
         <motion.div {...appear(0.15)} className="home-delivery-areas">
           <span className="home-overline">WE DELIVER ACROSS JAIPUR, INCLUDING</span>
           <p>C-Scheme, Bani Park, Jagatpura, Malviya Nagar, Vidhyadhar Nagar, Raja Park, Vaishali Nagar, Adarsh Nagar, Gandhinagar, Gopalpura Mod, Jawahar Nagar, Lal Kothi, Brahmapuri, Ghat Gate, Durgapura, Civil Lines, Ashok Nagar, Ajmer Road, Tonk Road, Amer, Hawa Mahal, Nahargarh Fort, Jaigarh Fort, City Palace, Jantar Mantar, Jal Mahal, Albert Hall Museum, Rambagh Palace, Sisodia Rani Ka Bagh, Galtaji Temple, Govind Dev Ji Temple, Birla Mandir, Central Park, Chokhi Dhani, Amber Fort and Palace, World Trade Park, Johari Bazaar, Bapu Bazaar, Chandpole Bazaar, Masala Chowk, Ram Niwas Garden, Kanak Vrindavan Garden, Raj Mandir Cinema, Jawahar Circle, SMS Stadium, Patrika Gate, Rambagh Golf Course — and many more. Relax, unwind, and explore a world of flavours with our convenient home delivery service.</p>
@@ -146,7 +152,7 @@ const Home = () => {
           <Link to="/about" className="home-button home-button-light">A little about us <ArrowRight size={17} /></Link>
           <div className="store-address"><MapPin size={17} /><span>Visit us in store<br /><small>B-33, Kalwad Yojana, Near Kalpana Cargo, Opposite Jaipur Metro Station, Pillar No. 147, Near Jaipur Railway Station, Jaipur – 302006</small></span></div>
         </motion.div>
-        <motion.div {...appear(0.12)} className="store-photo"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1400&q=90" alt="Warm and welcoming neighbourhood bar interior" loading="lazy" /><span>COME AS YOU ARE</span></motion.div>
+        <motion.div {...appear(0.12)} className="store-photo"><img src={`${import.meta.env.BASE_URL}store/store-11.jpg`} alt="Inside the Kaal Bhairav Wines store in Jaipur" loading="lazy" /><span>COME AS YOU ARE</span></motion.div>
       </section>
 
       <section className="home-section home-reviews">

@@ -14,7 +14,7 @@ const Services = () => {
   return (
     <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.45 }}>
       <section className="subhero relative overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1800&q=90" alt="Colorful cocktails ready for a celebration" />
+        <img src={`${import.meta.env.BASE_URL}store/store-12.jpg`} alt="A look at our wine store in Jaipur" />
         <div className="subhero__shade" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-36 text-center sm:px-6 lg:px-8">
           <motion.span initial={{ opacity: 0, y: -14 }} animate={{ opacity: 1, y: 0 }} className="pill">
@@ -89,7 +89,7 @@ const Services = () => {
       <section className="section-pad service-bottle-strip relative overflow-hidden">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="moving-shelf" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1400&q=90" alt="" />
+            <img src={`${import.meta.env.BASE_URL}store/store-06.jpg`} alt="" />
             <span className="shelf-caption">Picked with care. Ready to celebrate.</span>
           </motion.div>
 
@@ -118,7 +118,7 @@ const Services = () => {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
           </div>
-          <img className="h-full min-h-[340px] w-full object-cover" src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1400&q=90" alt="A warmly lit wine collection" />
+          <img className="h-full min-h-[340px] w-full object-cover" src={`${import.meta.env.BASE_URL}store/store-10.jpg`} alt="A thoughtfully stocked wine shelf" />
         </div>
       </section>
     </motion.main>
