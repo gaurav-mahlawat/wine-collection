@@ -38,7 +38,9 @@ const Home = () => {
           <motion.div {...appear(0.34)} className="home-social-proof"><div className="proof-stars">★★★★★</div><span>Good bottles. Good people. Better gatherings.</span></motion.div>
         </div>
         <motion.div className="home-hero-visual" initial={reduceMotion ? false : { opacity: 0, scale: 1.025 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: reduceMotion ? 0 : 0.9, ease: 'easeOut' }}>
-          <img src="https://images.unsplash.com/photo-1601053397261-2552332609fc?auto=format&fit=crop&w=1800&q=90" alt="Warmly lit shelves of whisky bottles" />
+          <video autoPlay muted loop playsInline className="hero-video">
+            <source src="/hero-section-video.mp4" type="video/mp4" />
+          </video>
           <div className="hero-photo-wash" />
           <div className="hero-photo-label"><span>THE EVENING EDIT</span><strong>Something worth<br />opening.</strong></div>
           <div className="hero-photo-stamp"><Sparkles size={17} /><span>Picked with<br />personality</span></div>
@@ -72,7 +74,9 @@ const Home = () => {
 
       <section className="home-feature-band">
         <motion.div {...appear()} className="home-feature-photo">
-          <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1500&q=90" alt="A colourful cocktail catching the light" loading="lazy" />
+          <video autoPlay muted loop playsInline className="feature-video">
+            <source src="/birdwiser-video.mp4" type="video/mp4" />
+          </video>
           <div className="feature-photo-caption">A LITTLE COLOUR NEVER HURT</div>
         </motion.div>
         <motion.div {...appear(0.1)} className="home-feature-copy">
