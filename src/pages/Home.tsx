@@ -39,7 +39,7 @@ const Home = () => {
         </div>
         <motion.div className="home-hero-visual" initial={reduceMotion ? false : { opacity: 0, scale: 1.025 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: reduceMotion ? 0 : 0.9, ease: 'easeOut' }}>
           <video autoPlay muted loop playsInline className="hero-video">
-            <source src="/hero-section-video.mp4" type="video/mp4" />
+            <source src={`${import.meta.env.BASE_URL}hero-section-video.mp4`} type="video/mp4" />
           </video>
           <div className="hero-photo-wash" />
           <div className="hero-photo-label"><span>THE EVENING EDIT</span><strong>Something worth<br />opening.</strong></div>
@@ -75,7 +75,7 @@ const Home = () => {
       <section className="home-feature-band">
         <motion.div {...appear()} className="home-feature-photo">
           <video autoPlay muted loop playsInline className="feature-video">
-            <source src="/birdwiser-video.mp4" type="video/mp4" />
+            <source src={`${import.meta.env.BASE_URL}birdwiser-video.mp4`} type="video/mp4" />
           </video>
           <div className="feature-photo-caption">A LITTLE COLOUR NEVER HURT</div>
         </motion.div>
