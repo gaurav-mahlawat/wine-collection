@@ -48,12 +48,6 @@ const Home = () => {
         <div className="hero-bottom-note"><span>01 — 04</span><span>SCROLL A LITTLE, FIND A LOT</span><div /></div>
       </section>
 
-      <section className="home-trust-strip" aria-label="Our approach">
-        <span>GOOD TASTE, NO GUESSWORK</span><i />
-        <span>HELPFUL, HUMAN RECOMMENDATIONS</span><i />
-        <span>MADE FOR EVERY KIND OF GET-TOGETHER</span>
-      </section>
-
       <section className="home-section home-delivery">
         <motion.div {...appear()} className="home-delivery-heading">
           <div className="home-delivery-title">
@@ -88,6 +82,12 @@ const Home = () => {
           <span className="home-overline">WE DELIVER ACROSS JAIPUR, INCLUDING</span>
           <p>C-Scheme, Bani Park, Jagatpura, Malviya Nagar, Vidhyadhar Nagar, Raja Park, Vaishali Nagar, Adarsh Nagar, Gandhinagar, Gopalpura Mod, Jawahar Nagar, Lal Kothi, Brahmapuri, Ghat Gate, Durgapura, Civil Lines, Ashok Nagar, Ajmer Road, Tonk Road, Amer, Hawa Mahal, Nahargarh Fort, Jaigarh Fort, City Palace, Jantar Mantar, Jal Mahal, Albert Hall Museum, Rambagh Palace, Sisodia Rani Ka Bagh, Galtaji Temple, Govind Dev Ji Temple, Birla Mandir, Central Park, Chokhi Dhani, Amber Fort and Palace, World Trade Park, Johari Bazaar, Bapu Bazaar, Chandpole Bazaar, Masala Chowk, Ram Niwas Garden, Kanak Vrindavan Garden, Raj Mandir Cinema, Jawahar Circle, SMS Stadium, Patrika Gate, Rambagh Golf Course — and many more. Relax, unwind, and explore a world of flavours with our convenient home delivery service.</p>
         </motion.div>
+      </section>
+
+      <section className="home-trust-strip" aria-label="Our approach">
+        <span>GOOD TASTE, NO GUESSWORK</span><i />
+        <span>HELPFUL, HUMAN RECOMMENDATIONS</span><i />
+        <span>MADE FOR EVERY KIND OF GET-TOGETHER</span>
       </section>
 
       <section className="home-section home-categories" id="collection">
