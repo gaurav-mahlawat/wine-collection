@@ -3,8 +3,8 @@ import { ArrowRight, BadgeCheck, CalendarDays, Gift, GlassWater, PackageCheck, S
 
 const Services = () => {
   const services = [
-    { icon: Wine, title: 'Bottle Consultation', text: 'Personal suggestions for dinners, parties, gifting, and collector shelves.', details: ['Food pairing support', 'Budget-led picks', 'Occasion planning'] },
-    { icon: Gift, title: 'Premium Gifting', text: 'Elegant gift packs with sleeves, pairings, message cards, and presentation boxes.', details: ['Festive hampers', 'Corporate sets', 'Custom notes'] },
+    { icon: Wine, title: 'Bottle Consultation', text: 'Personal suggestions for parties, gifting, and collector shelves.', details: ['Budget-led picks', 'Occasion planning', 'Style guidance'] },
+    { icon: Gift, title: 'Premium Gifting', text: 'Elegant gift packs with sleeves, message cards, and presentation boxes.', details: ['Festive hampers', 'Corporate sets', 'Custom notes'] },
     { icon: CalendarDays, title: 'Event Orders', text: 'Curated beverage lists for birthdays, weddings, house parties, and office gatherings.', details: ['Quantity guidance', 'Mixed selections', 'Advance booking'] },
     { icon: PackageCheck, title: 'Reserve Sourcing', text: 'Ask us for specific labels, limited releases, imported bottles, and premium spirits.', details: ['Label requests', 'Rare finds', 'Stock alerts'] },
     { icon: Truck, title: 'Pickup Coordination', text: 'Quick order preparation so your bottles are packed, checked, and ready when you arrive.', details: ['Fast packing', 'Secure handling', 'Call-ahead support'] },
@@ -71,7 +71,7 @@ const Services = () => {
 
           <div className="process-grid">
             {[
-              ['01', 'Share the occasion', 'Dinner, gift, party, collection, or a specific label request.'],
+              ['01', 'Share the occasion', 'Gift, party, collection, or a specific label request.'],
               ['02', 'Get curated options', 'We suggest bottles by taste, style, budget, and presentation.'],
               ['03', 'Confirm the selection', 'Your order is checked, packed, and prepared with care.'],
               ['04', 'Enjoy responsibly', 'Walk away with bottles that match the moment beautifully.'],

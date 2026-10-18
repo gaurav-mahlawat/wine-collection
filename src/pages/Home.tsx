@@ -4,13 +4,13 @@ import { ArrowDown, ArrowRight, BadgeCheck, Gift, IndianRupee, MapPin, Quote, Sp
 
 const categories = [
   { title: 'Whisky', note: 'Easy evenings to rare finds', image: `${import.meta.env.BASE_URL}bottles/whisky-1.webp`, className: 'category-tall' },
-  { title: 'Wine', note: 'A bottle for the table', image: `${import.meta.env.BASE_URL}bottles/wine-1.webp`, className: '' },
+  { title: 'Wine', note: 'A bottle for every occasion', image: `${import.meta.env.BASE_URL}bottles/wine-1.webp`, className: '' },
   { title: 'Beer', note: 'Keep the good times easy', image: `${import.meta.env.BASE_URL}bottles/beer-1.webp`, className: '' },
   { title: 'Gin & more', note: 'Bright pours, curious mixes', image: `${import.meta.env.BASE_URL}bottles/gin-1.webp`, className: 'category-wide' },
 ];
 
 const moments = [
-  { title: 'Dinner, made special', note: 'A thoughtful bottle for the table.', image: `${import.meta.env.BASE_URL}store/store-01.jpg`, label: '01 / AT HOME' },
+  { title: 'An evening, made special', note: 'A thoughtful bottle for any get-together.', image: `${import.meta.env.BASE_URL}store/store-01.jpg`, label: '01 / AT HOME' },
   { title: 'A gift with good taste', note: 'Make the handover feel as good as the gift.', image: `${import.meta.env.BASE_URL}store/store-03.jpg`, label: '02 / JUST BECAUSE' },
   { title: 'Bring everyone together', note: 'Let the occasion set the mood.', image: `${import.meta.env.BASE_URL}store/store-06.jpg`, label: '03 / THE GATHERING' },
 ];
@@ -157,7 +157,7 @@ const Home = () => {
 
       <section className="home-section home-reviews">
         <motion.div {...appear()} className="reviews-intro"><span className="home-overline">KIND WORDS, SHARED</span><h2>Good company<br /><em>knows good taste.</em></h2><div className="proof-stars">★★★★★</div><p>Thoughtful picks make the best memories.</p></motion.div>
-        <motion.blockquote {...appear(0.08)} className="home-quote"><Quote size={29} /><p>“The team understood exactly what I needed for dinner. Helpful, welcoming, and the bottle was just right.”</p><footer><div className="review-avatar">AM</div><span><strong>A happy customer</strong><small>Stopped in for a dinner pick</small></span><div className="quote-rating"><Star size={14} fill="currentColor" /> 5.0</div></footer></motion.blockquote>
+        <motion.blockquote {...appear(0.08)} className="home-quote"><Quote size={29} /><p>“The team understood exactly what I needed for my get-together. Helpful, welcoming, and the bottle was just right.”</p><footer><div className="review-avatar">AM</div><span><strong>A happy customer</strong><small>Stopped in for a celebration pick</small></span><div className="quote-rating"><Star size={14} fill="currentColor" /> 5.0</div></footer></motion.blockquote>
       </section>
 
       <section className="home-final-cta">

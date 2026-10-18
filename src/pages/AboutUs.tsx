@@ -4,7 +4,7 @@ import { Award, Eye, Heart, Leaf, MapPin, Target, Users, Wine } from 'lucide-rea
 const AboutUs = () => {
   const values = [
     { icon: Heart, title: 'Warm Service', text: 'Helpful recommendations without pressure or pretence.' },
-    { icon: Eye, title: 'Honest Choice', text: 'Clear guidance on style, price, pairing, and occasion fit.' },
+    { icon: Eye, title: 'Honest Choice', text: 'Clear guidance on style, price, and occasion fit.' },
     { icon: Target, title: 'Curated Range', text: 'A focused mix of familiar favourites and standout discoveries.' },
     { icon: Leaf, title: 'Responsible Culture', text: 'We encourage mindful hosting, gifting, and consumption.' },
   ];
@@ -105,7 +105,7 @@ const AboutUs = () => {
               <span className="eyebrow">Our Promise</span>
               <h2>Every recommendation should feel like it was chosen for you.</h2>
               <p>
-                Whether you are building a dinner table, gifting a client, or collecting something special,
+                Whether you are gifting a client, planning a party, or collecting something special,
                 Wines keeps the experience simple, stylish, and personal.
               </p>
             </div>
