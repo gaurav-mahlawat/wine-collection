@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowDown, ArrowRight, BadgeCheck, Gift, MapPin, Quote, Sparkles, Star } from 'lucide-react';
+import { ArrowDown, ArrowRight, BadgeCheck, Gift, IndianRupee, MapPin, Quote, Sparkles, Star, Truck, Wine } from 'lucide-react';
 
 const categories = [
   { title: 'Whisky', note: 'Easy evenings to rare finds', image: 'https://images.unsplash.com/photo-1527281400683-1aae777175f8?auto=format&fit=crop&w=1000&q=90', className: 'category-tall' },
@@ -52,6 +52,42 @@ const Home = () => {
         <span>GOOD TASTE, NO GUESSWORK</span><i />
         <span>HELPFUL, HUMAN RECOMMENDATIONS</span><i />
         <span>MADE FOR EVERY KIND OF GET-TOGETHER</span>
+      </section>
+
+      <section className="home-section home-delivery">
+        <motion.div {...appear()} className="home-delivery-heading">
+          <div className="home-delivery-title">
+            <span className="home-overline">DELIVERED TO YOUR DOORSTEP</span>
+            <h2>Wine Home Delivery<br /><em>in Jaipur</em></h2>
+          </div>
+          <p>Unwind and sip in style. Premium wines, spirits, and easy favourites delivered to your doorstep across the Pink City.</p>
+        </motion.div>
+        <div className="home-delivery-cards">
+          <motion.div {...appear(0.05)} className="home-delivery-card">
+            <div className="delivery-card-icon"><Wine size={26} /></div>
+            <h3>Wide Range</h3>
+            <p>Select the drink of your choice from a wide range of wines, whiskies, rums, gins, vodkas, and beers.</p>
+          </motion.div>
+          <motion.div {...appear(0.1)} className="home-delivery-card">
+            <div className="delivery-card-icon"><Truck size={26} /></div>
+            <h3>Home Delivery in Jaipur</h3>
+            <p>Drinks delivered at your doorstep, no extra charges within a 2km radius of our shop.</p>
+          </motion.div>
+          <motion.div {...appear(0.15)} className="home-delivery-card">
+            <div className="delivery-card-icon"><IndianRupee size={26} /></div>
+            <h3>On MRP</h3>
+            <p>All drinks are sold at MRP price. Best price guaranteed, every single time.</p>
+          </motion.div>
+        </div>
+        <motion.div {...appear(0.1)} className="home-delivery-body">
+          <p>Are you a resident of Jaipur looking for a convenient way to enjoy premium wines and spirits? Look no further. We are your one-stop shop for all your beverage needs, delivering right to your doorstep across the beautiful Pink City.</p>
+          <p>Whether you live in the bustling heart of <strong>C-Scheme</strong>, the historical precincts of <strong>Bani Park</strong>, or the serene outskirts of <strong>Jagatpura</strong>, we have got you covered. From renowned Indian whiskies to exquisite international wines, there is something for every palate and occasion.</p>
+          <p><strong>Effortless ordering and speedy delivery:</strong> simply drop by our shop near the Jaipur Railway Station, or give us a call, and choose your desired beverages. We ensure a smooth ordering process with prompt home delivery, so you can relax and unwind without venturing out.</p>
+        </motion.div>
+        <motion.div {...appear(0.15)} className="home-delivery-areas">
+          <span className="home-overline">WE DELIVER ACROSS JAIPUR, INCLUDING</span>
+          <p>C-Scheme, Bani Park, Jagatpura, Malviya Nagar, Vidhyadhar Nagar, Raja Park, Vaishali Nagar, Adarsh Nagar, Gandhinagar, Gopalpura Mod, Jawahar Nagar, Lal Kothi, Brahmapuri, Ghat Gate, Durgapura, Civil Lines, Ashok Nagar, Ajmer Road, Tonk Road, Amer, Hawa Mahal, Nahargarh Fort, Jaigarh Fort, City Palace, Jantar Mantar, Jal Mahal, Albert Hall Museum, Rambagh Palace, Sisodia Rani Ka Bagh, Galtaji Temple, Govind Dev Ji Temple, Birla Mandir, Central Park, Chokhi Dhani, Amber Fort and Palace, World Trade Park, Johari Bazaar, Bapu Bazaar, Chandpole Bazaar, Masala Chowk, Ram Niwas Garden, Kanak Vrindavan Garden, Raj Mandir Cinema, Jawahar Circle, SMS Stadium, Patrika Gate, Rambagh Golf Course — and many more. Relax, unwind, and explore a world of flavours with our convenient home delivery service.</p>
+        </motion.div>
       </section>
 
       <section className="home-section home-categories" id="collection">
@@ -122,6 +158,14 @@ const Home = () => {
         <div className="cta-sparkle"><Gift size={25} /></div><span className="home-overline">YOUR NEXT FAVOURITE IS WAITING</span>
         <h2>Make tonight<br /><em>a little special.</em></h2><p>Drop by, tell us what you are celebrating—or just what you like.</p>
         <Link to="/services" className="home-button">Let’s find your bottle <ArrowRight size={17} /></Link>
+      </section>
+
+      <section className="home-legal-notice">
+        <div className="legal-notice-card">
+          <h2>Legal Notice</h2>
+          <p>This website is for <strong>informational purposes only</strong>. We do not sell alcohol online. For liquor delivery enquiries in Jaipur, please contact us directly. Must be <strong>18 years or older</strong> to order. Please drink responsibly.</p>
+          <p className="legal-warning"><span>⚠</span> Consumption of Alcohol is Injurious to Health. Be Safe — Don’t Drink and Drive.</p>
+        </div>
       </section>
     </motion.main>
   );
