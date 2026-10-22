@@ -28,12 +28,12 @@ const AboutUs = () => {
         </div>
       </section>
 
-      <section className="section-pad bg-ivory text-dark">
+      <section className="section-pad bg-[#0b0908] text-white">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8">
           <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <span className="eyebrow-dark">Our Story</span>
             <h2 className="mt-4 text-4xl font-black leading-tight sm:text-5xl">Built for people who love a well-chosen bottle.</h2>
-            <div className="mt-6 space-y-5 text-lg leading-8 text-charcoal/72">
+            <div className="mt-6 space-y-5 text-lg leading-8 text-white/64">
               <p>
                 Wines began with a simple belief: choosing wine or spirits should feel enjoyable, not overwhelming.
                 Our store is designed around clean displays, friendly guidance, and a collection that suits both everyday plans and milestone moments.
@@ -79,12 +79,12 @@ const AboutUs = () => {
         </div>
       </section>
 
-      <section className="section-pad bg-ivory text-dark">
+      <section className="section-pad bg-[#0b0908] text-white">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8">
           <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <span className="eyebrow-dark">Store Mood</span>
             <h2 className="mt-4 text-4xl font-black leading-tight sm:text-5xl">A boutique shelf, not a crowded counter.</h2>
-            <p className="mt-5 text-lg leading-8 text-charcoal/72">
+            <p className="mt-5 text-lg leading-8 text-white/64">
               We arrange bottles so customers can scan quickly, compare styles, and ask for help without feeling rushed.
               The idea is simple: premium choice should feel calm, clear, and enjoyable.
             </p>

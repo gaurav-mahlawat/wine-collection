@@ -62,7 +62,7 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="section-pad bg-ivory text-dark">
+      <section className="section-pad bg-[#0b0908] text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="section-heading section-heading--dark">
             <span>How It Works</span>
